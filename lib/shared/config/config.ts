@@ -16,6 +16,7 @@ export const CONFIG = {
   markerStrokeColor: '#ffffff',
   markerFontSize: '16px',
   markerFontWeight: '800',
+  markerStateEvent: 'click',
   distanceValidInitial: 2000,
   distanceStep: 1,
   distanceMax: 5000,

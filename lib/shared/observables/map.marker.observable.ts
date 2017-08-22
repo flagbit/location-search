@@ -66,7 +66,7 @@ export class MapMarkerObservable extends AbstractObservable {
         label: this.getMarkerLabel(ALPHABET[i])
       }
       let marker = new google.maps.Marker(markerOptions);
-      marker.addListener('click', () => {
+      marker.addListener(CONFIG.markerStateEvent, () => {
         DataServiceInstance.toggleItemActive(i);
       });
       markers.push(marker);
