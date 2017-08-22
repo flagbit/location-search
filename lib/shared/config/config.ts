@@ -10,5 +10,15 @@ export const CONFIG = {
   initialFilters: 'name zip street city',
   prioFilters: 'name',
   itemsPerPage: 3,
-  queryMinLength: 2
+  queryMinLength: 2,
+  markerColor: '#000000',
+  markerActiveColor: '#c4301a',
+  markerStrokeColor: '#ffffff',
+  markerFontSize: '16px',
+  markerFontWeight: '800',
+  distanceValidInitial: 2000,
+  distanceStep: 1,
+  distanceMax: 5000,
+  mapZoomInitial: 14,
+  mapZoomMax: 16
 }

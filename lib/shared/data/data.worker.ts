@@ -214,19 +214,17 @@ class DataWorker {
   private getLocationsNearby(lat: number, lng: number): Array<any> {
     console.log('=== GET NEARBY');
     this.resetCurrentPage();
-    let distanceValid = 2000;
-    let distanceStep = 1;
-    let distanceMax = 5000;
+    let distanceValid = this.config.distanceValidInitial;
     let result = [];
 
-    while (!result.length && distanceValid <= distanceMax) {
+    while (!result.length && distanceValid <= this.config.distanceMax) {
       result = this.locations.filter((location) => {
         location.distance = DataUtils.getDistance(lat, lng, location[this.config.fieldLat], location[this.config.fieldLng], 'K');
         return location.distance <= distanceValid;
       });
       if (!result.length) {
         console.log('RADIUS ERWEITERN!');
-        distanceValid += distanceStep;
+        distanceValid += this.config.distanceStep;
       }
     }
     console.log('*** LENGTH', result.length);

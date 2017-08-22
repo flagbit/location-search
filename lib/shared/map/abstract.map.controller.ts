@@ -1,6 +1,7 @@
 import { THEME_3 } from '../themes/theme.3';
 import UserLocation from '../observables/user.location.observable';
 import { MapMarkerObservableInstance } from '../observables/map.marker.observable';
+import { CONFIG } from '../config/config';
 
 export abstract class AbstractMapController {
 
@@ -44,8 +45,8 @@ export abstract class AbstractMapController {
     UserLocation.get().subscribe((res) => {
       if (res !== null) {
         let config = {
-          zoom: 14,
-          maxZoom: 14,
+          zoom: CONFIG.mapZoomInitial,
+          maxZoom: CONFIG.mapZoomMax,
           center: new google.maps.LatLng(res.latitude, res.longitude),
           disableDefaultUI: true,
           draggable: true,
