@@ -22,11 +22,11 @@ export class MapMarkerObservable extends AbstractObservable {
   }
 
   private getMarkerSymbol(
-    color = CONFIG.markerColor,
-    strokeColor = CONFIG.markerStrokeColor,
-    scale = 1.9,
-    strokeWeight = 2
-  ) {
+    color: string = CONFIG.markerColor,
+    strokeColor: string = CONFIG.markerStrokeColor,
+    scale: number = 1.9,
+    strokeWeight: number = 2
+  ): google.maps.Symbol {
     let symbol = {
       path: MARKER_2,
       fillColor: color,
@@ -37,22 +37,22 @@ export class MapMarkerObservable extends AbstractObservable {
       anchor: new google.maps.Point(11.7, 22),
       labelOrigin: new google.maps.Point(12, 10)
     }
-    return symbol
+    return symbol;
   }
 
   private getMarkerLabel(
-    text,
-    color = CONFIG.markerStrokeColor,
-    size = CONFIG.markerFontSize,
-    weight = CONFIG.markerFontWeight
-  ) {
+    text: string,
+    color: string = CONFIG.markerStrokeColor,
+    size: string = CONFIG.markerFontSize,
+    weight: string = CONFIG.markerFontWeight
+  ): google.maps.MarkerLabel {
     let label = {
       color: color,
       fontSize: size,
       fontWeight: weight,
       text: text
     }
-    return label
+    return label;
   }
 
   private generateMarkers(locations): Array<google.maps.Marker> {
