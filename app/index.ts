@@ -1,9 +1,10 @@
-import { LocationSearchModule } from '../lib/angularjs/location.search.module';
+import '/bundle.js'
+// import { LocationSearchModule } from '../lib/angularjs/location.search.module';
 import { ApplicationController } from './controllers/application.controller';
 
 angular
   .module('app', [
-    LocationSearchModule.name
+    'LocationSearchModule'
   ])
   .controller('ApplicationController', ApplicationController)
 ;

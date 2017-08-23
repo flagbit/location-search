@@ -3,7 +3,6 @@ import * as _angular_ from 'angular';
 declare global {
   const angular: typeof _angular_;
 }
-import '/node_modules/angular-utils-pagination/dirPagination.js';
 
 //
 //
@@ -22,7 +21,6 @@ import { LocationSearchTemplate } from './location.search.template';
 //
 export const LocationSearchModule = angular
   .module('LocationSearchModule', [
-    'angularUtils.directives.dirPagination',
     SearchModule.name,
     MapModule.name,
     ListModule.name,

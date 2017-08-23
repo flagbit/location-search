@@ -1,7 +1,7 @@
 import { AbstractObservable } from '../observables/abstract.observable';
 import { QueryObservableInstance } from '../observables/query.observable';
 import UserLocation from '../observables/user.location.observable';
-import { CONFIG } from '../config/config';
+import { CONFIG, WORKER_PATH } from '../config/config';
 
 export class DataService extends AbstractObservable {
 
@@ -56,7 +56,7 @@ export class DataService extends AbstractObservable {
   }
 
   private initWorker() {
-    this.worker = new Worker('/lib/shared/worker/data.worker.js');
+    this.worker = new Worker(`${WORKER_PATH}/data.worker.js`);
     this.worker.onmessage = this.messageHandler.bind(this);
   }
 
