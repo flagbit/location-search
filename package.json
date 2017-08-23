@@ -1,7 +1,7 @@
 {
   "name": "location-search",
-  "version": "0.0.1",
-  "main": "index.js",
+  "version": "0.1.0",
+  "main": "index.html",
   "license": "MIT",
   "scripts": {
     "lint": "tslint -c tslint.json --type-check --project tsconfig.json '**/*.ts' --exclude '**/node_modules/**'",

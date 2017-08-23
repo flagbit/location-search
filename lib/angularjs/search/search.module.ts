@@ -3,6 +3,7 @@
 // =============================================================================
 //
 import { SearchComponent } from './search.component';
+import { SearchTemplate } from './search.template';
 
 //
 // DEFINE ANGULAR MODULE
@@ -11,4 +12,5 @@ import { SearchComponent } from './search.component';
 export const SearchModule = angular
   .module('SearchModule', [])
   .component('locationSearchSearch', SearchComponent)
+  .value('locationSearchSearchTemplate', SearchTemplate)
 ;

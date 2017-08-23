@@ -5,6 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>LocationSearchModule</title>
+  <link rel="stylesheet" href="https://mralexandernickel.github.io/flex-attributes/node_modules/@mralexandernickel/flex-attributes/dist/flex-attributes.min.css">
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ul.pagination {
+  list-style: none;
+}
+ul.pagination li {
+  display: inline-block;
+  margin-left: 8px;
+}
+ul.pagination li:first-child {
+  margin-left: 0;
+}
+ul.pagination li a {
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  width: 30px;
+  text-align: center;
+}
+ul.pagination li.active a {
+  background: #ccc;
+}
+</style>
 </head>
 <body>
   <main ng-controller="ApplicationController as ctrl">

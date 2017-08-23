@@ -4,8 +4,11 @@ import { DataServiceInstance } from '../../shared/data/data.service';
 import { CONFIG } from '../../shared/config/config';
 
 export class PaginationController implements IController {
+
   public subject: BehaviorSubject<any>;
   public currentPage: number;
+  public totalItems: number;
+  public itemsPerPage: number = CONFIG.itemsPerPage;
   public pages: Array<any>;
 
   public subscribeData() {
@@ -13,7 +16,8 @@ export class PaginationController implements IController {
       if (data !== null) {
         console.log('+++ IN PAGINATION', data);
         this.currentPage = data.currentPage;
-        let calculatedPages = Math.ceil(data.totalItems / CONFIG.itemsPerPage);
+        this.totalItems = data.totalItems;
+        let calculatedPages = Math.ceil(this.totalItems / this.itemsPerPage);
         if (calculatedPages <= 1) {
           calculatedPages = 0;
         }
@@ -29,4 +33,5 @@ export class PaginationController implements IController {
   $onInit() {
     this.subscribeData();
   }
+
 }

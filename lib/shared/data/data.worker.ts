@@ -166,13 +166,15 @@ class DataWorker {
 
   public filter(query: string): void {
     if (this.locations) {
-      if (query.length < this.config.queryMinLength) {
+      if (query.length <= this.config.queryMinLength) {
+        console.log('=== NOT LONG ENOUGH');
+        this.locationsNearby = this.getLocationsNearby(this.userLocation.latitude, this.userLocation.longitude);
         this.sendResponse(this.locationsNearby, false);
       } else {
         let matches = this.getMatchesInFields(query, this.config.prioFilters);
         if (matches.length) {
           console.log('=== FOUND IN PRIO', matches);
-          this.sendResponse(matches);
+          this.sendResponse(matches, false);
         } else {
           DataUtils.geocodeAddress(query).then((result) => {
             console.log('=== GEOCODE RESULT', result);

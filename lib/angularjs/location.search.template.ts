@@ -1,0 +1,23 @@
+export const LocationSearchTemplate =
+`<location-search-search
+  flex="100"
+  subject="ctrl.listSubject">
+</location-search-search>
+<div
+  layout="row">
+  <location-search-map
+    flex="65"
+    style="height:800px;"
+    subject="ctrl.listSubject">
+  </location-search-map>
+  <location-search-list
+    flex="35"
+    subject="ctrl.listSubject">
+  </location-search-list>
+</div>
+<location-search-pagination
+  subject="ctrl.listSubject"
+  flex="100"
+  layout="row"
+  layout-align="space-between">
+</location-search-pagination>`;

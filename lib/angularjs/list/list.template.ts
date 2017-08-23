@@ -1,0 +1,8 @@
+export const ListTemplate =
+`<ul>
+  <li
+    ng-repeat="location in ctrl.locations"
+    ng-click="ctrl.toggleItemActive($index)">
+    <pre>{{ location | json }}</pre>
+  </li>
+</ul>`;
