@@ -56,7 +56,7 @@ export class DataService extends AbstractObservable {
   }
 
   private initWorker() {
-    this.worker = new Worker('/lib/shared/data/data.worker.js');
+    this.worker = new Worker('/lib/shared/worker/data.worker.js');
     this.worker.onmessage = this.messageHandler.bind(this);
   }
 

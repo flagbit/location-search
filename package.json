@@ -4,8 +4,8 @@
   "main": "index.html",
   "license": "MIT",
   "scripts": {
-    "lint": "tslint -c tslint.json --type-check --project tsconfig.json '**/*.ts' --exclude '**/node_modules/**'",
-    "build": "yarn lint && tsc",
+    "lint": "tslint -c tslint.json --type-check --project tsconfig.json '**/*.ts' --exclude '**/node_modules/**' --exclude '**/worker/**'",
+    "build": "yarn lint && tsc && cd lib/shared/worker && tsc && cd ../../../",
     "test:bs": "karma start karma.conf.js",
     "test": "karma start karma.local.conf.js",
     "test-single-run": "karma start karma.conf.js --single-run",
@@ -24,6 +24,7 @@
     "@types/angular": "^1.6.24",
     "@types/angular-mocks": "^1.5.10",
     "@types/googlemaps": "^3.26.20",
+    "@types/jasmine": "^2.5.54",
     "angular-mocks": "^1.6.4",
     "jasmine-core": "^2.6.4",
     "karma": "^1.7.0",
