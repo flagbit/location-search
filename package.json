@@ -1,5 +1,5 @@
 {
-  "name": "location-search",
+  "name": "@flagbit/location-search",
   "version": "0.1.0",
   "main": "index.html",
   "license": "MIT",
