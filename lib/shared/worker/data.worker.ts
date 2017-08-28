@@ -11,6 +11,8 @@ class Deferred {
   }
 }
 
+const MAPS_API_KEY = 'AIzaSyD2eI5anobF7bTsgNJI5ZH8IH3gFYaNXsk';
+
 class DataUtils {
 
   public static shuffle(data: Array<any>): Array<any> {
@@ -51,7 +53,7 @@ class DataUtils {
 
   public static geocodeAddress(address: string): Promise<any> {
     let promise = new Promise((resolve) => {
-      fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}`).then((res) => {
+      fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${MAPS_API_KEY}`).then((res) => {
         res.json().then((json) => {
           // TODO check how long the list of results is => if its too long then return false!
           resolve(json.results[0]);

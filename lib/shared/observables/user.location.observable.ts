@@ -26,7 +26,7 @@ class UserLocation extends AbstractObservable {
       },
       // User denied permission to his geolocation -> get by IP
       () => {
-        fetch(`http://geoip.mralexandernickel.com`).then((res) => {
+        fetch(`https://geoip.mralexandernickel.com`).then((res) => {
           res.json().then((position) => {
             this.saveAndSendPosition(position.latitude, position.longitude);
           });

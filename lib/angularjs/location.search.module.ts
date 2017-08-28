@@ -9,10 +9,10 @@ declare global {
 // =============================================================================
 //
 import { LocationSearchComponent } from './location.search.component';
-import { SearchModule } from './search/search.module';
+import { LocationSearchSearchModule } from './search/search.module';
 import { MapModule } from './map/map.module';
 import { ListModule } from './list/list.module';
-import { PaginationModule } from './pagination/pagination.module';
+import { LocationSearchPaginationModule } from './pagination/pagination.module';
 import { LocationSearchTemplate } from './location.search.template';
 
 //
@@ -21,13 +21,14 @@ import { LocationSearchTemplate } from './location.search.template';
 //
 export const LocationSearchModule = angular
   .module('LocationSearchModule', [
-    SearchModule.name,
+    LocationSearchSearchModule.name,
     MapModule.name,
     ListModule.name,
-    PaginationModule.name
+    LocationSearchPaginationModule.name
   ])
   .component('locationSearch', LocationSearchComponent)
   .value('locationSearchTemplate', LocationSearchTemplate)
+  /*
   .config(($compileProvider) => {
     if (window['APPLICATION_ENV'] !== 'development') {
       $compileProvider.debugInfoEnabled(false);
@@ -35,4 +36,5 @@ export const LocationSearchModule = angular
       $compileProvider.cssClassDirectivesEnabled(false);
     }
   })
+  */
 ;
