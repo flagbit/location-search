@@ -4,6 +4,8 @@ declare global {
   const angular: typeof _angular_;
 }
 
+import 'whatwg-fetch/fetch.js';
+
 //
 //
 // =============================================================================

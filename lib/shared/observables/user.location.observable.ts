@@ -1,12 +1,13 @@
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { AbstractObservable } from './abstract.observable';
 
 class UserLocation extends AbstractObservable {
 
   public location: any = null;
 
-  constructor() {
-    super();
+  public get(): BehaviorSubject<any> {
     this.getUserLocation();
+    return super.get();
   }
 
   private saveAndSendPosition(lat, lng) {
