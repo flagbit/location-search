@@ -1,3 +1,5 @@
+importScripts('/node_modules/whatwg-fetch/fetch.js');
+
 class Deferred {
   public promise: any;
   public reject: any;
@@ -53,7 +55,7 @@ class DataUtils {
 
   public static geocodeAddress(address: string): Promise<any> {
     let promise = new Promise((resolve) => {
-      fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${MAPS_API_KEY}`).then((res) => {
+      self.fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${MAPS_API_KEY}`).then((res) => {
         res.json().then((json) => {
           // TODO check how long the list of results is => if its too long then return false!
           resolve(json.results[0]);
@@ -127,7 +129,7 @@ class DataWorker {
   }
 
   private getData(): void {
-    fetch(this.config.resourceUrl).then((res) => {
+    self.fetch(this.config.resourceUrl).then((res) => {
       res.json().then((locations) => {
         this.setLocations(locations);
         console.log('SET LOCATIONS')
