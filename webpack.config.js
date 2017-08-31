@@ -1,6 +1,6 @@
 module.exports = {
     entry: {
-        module:"./lib/angularjs/location.search.module.ts"
+        module:"./src/angularjs/location.search.module.ts"
     },
     output: {
         filename: "./dist/location-search.js",

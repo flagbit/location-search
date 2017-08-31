@@ -1,6 +1,6 @@
 import { IController } from 'angular';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { DataServiceInstance } from '../shared/data/data.service';
+import { DataServiceInstance } from '../commons/services/data.service';
 
 export class LocationSearchController implements IController {
 
@@ -14,6 +14,10 @@ export class LocationSearchController implements IController {
     this.listSubject.subscribe(list => {
       // console.log('LIST #1', list);
     });
+  }
+
+  $onInit() {
+    DataServiceInstance.start();
   }
 
 }

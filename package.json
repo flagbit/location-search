@@ -1,11 +1,11 @@
 {
   "name": "@flagbit/location-search",
-  "version": "0.2.9",
+  "version": "0.3.0",
   "main": "index.html",
   "license": "MIT",
   "scripts": {
     "lint": "tslint -c tslint.json --type-check --project tsconfig.json '**/*.ts' --exclude '**/node_modules/**' --exclude '**/worker/**'",
-    "build": "yarn lint && tsc && cd lib/shared/worker && tsc && cd ../../../",
+    "build": "yarn lint && tsc && cd src/commons/worker && tsc && cd ../../../",
     "test:bs": "karma start karma.conf.js",
     "test": "karma start karma.local.conf.js",
     "test-single-run": "karma start karma.conf.js --single-run",
@@ -17,7 +17,7 @@
     "compress": "yarn uglify:module && yarn uglify:worker",
     "uglify:module": "./node_modules/uglify-js/bin/uglifyjs dist/location-search.js --compress > dist/location-search.min.js",
     "uglify:worker": "./node_modules/uglify-js/bin/uglifyjs dist/data.worker.js --compress > dist/data.worker.min.js",
-    "dist": "yarn lint && yarn webpack && cd lib/shared/worker && tsc && cd ../../../ && cp lib/shared/worker/data.worker.js dist/ && yarn compress",
+    "dist": "yarn lint && yarn webpack && cd src/commons/worker && tsc && cd ../../../ && cp src/commons/worker/data.worker.js dist/ && yarn compress",
     "prepublish": "yarn dist"
   },
   "dependencies": {

@@ -6,51 +6,47 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>LocationSearchModule</title>
   <link rel="stylesheet" href="https://mralexandernickel.github.io/flex-attributes/node_modules/@mralexandernickel/flex-attributes/dist/flex-attributes.min.css">
-<style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-ul.pagination {
-  list-style: none;
-}
-ul.pagination li {
-  display: inline-block;
-  margin-left: 8px;
-}
-ul.pagination li:first-child {
-  margin-left: 0;
-}
-ul.pagination li a {
-  display: block;
-  height: 30px;
-  line-height: 30px;
-  width: 30px;
-  text-align: center;
-}
-ul.pagination li.active a {
-  background: #ccc;
-}
-</style>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    ul.pagination {
+      list-style: none;
+    }
+    ul.pagination li {
+      display: inline-block;
+      margin-left: 8px;
+    }
+    ul.pagination li:first-child {
+      margin-left: 0;
+    }
+    ul.pagination li a {
+      display: block;
+      height: 30px;
+      line-height: 30px;
+      width: 30px;
+      text-align: center;
+    }
+    ul.pagination li.active a {
+      background: #ccc;
+    }
+  </style>
 </head>
 <body>
+
   <main>
     <location-search></location-search>
   </main>
-  <script>
-    window['APPLICATION_ENV'] = 'search.development';
-  </script>
+
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+  <script>window['APPLICATION_ENV'] = 'search.development';</script>
   <script src="dist/location-search.min.js"></script>
   <script>
-  angular.module('demo', ['LocationSearchModule'])
-  angular.bootstrap(document.documentElement, ['demo'])
+    angular.module('demo', ['LocationSearchModule'])
+    angular.bootstrap(document.documentElement, ['demo'])
   </script>
-  <!--
-  <script src="node_modules/systemjs/dist/system.js"></script>
-  <script src="systemjs.config.js"></script>
-  <script>System.import('app/index.js').then(function(){});</script>
-  -->
+
 </body>
 </html>

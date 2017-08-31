@@ -1,5 +1,5 @@
 import { IController } from 'angular';
-import { DataServiceInstance } from '../../shared/data/data.service';
+import { DataServiceInstance } from '../../commons/services/data.service';
 
 export class ListController implements IController {
   public subject: any;

@@ -19,6 +19,6 @@
   },
   "exclude": [
     "node_modules",
-    "lib/shared/worker"
+    "src/commons/worker"
   ]
 }

@@ -1,5 +1,5 @@
 import { IController, IAugmentedJQuery } from 'angular';
-import { AbstractMapController } from '../../shared/map/abstract.map.controller';
+import { AbstractMapController } from '../../commons/controllers/abstract.map.controller';
 
 export class MapController extends AbstractMapController implements IController {
 

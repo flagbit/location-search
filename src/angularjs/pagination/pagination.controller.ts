@@ -1,7 +1,7 @@
 import { IController } from 'angular';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { DataServiceInstance } from '../../shared/data/data.service';
-import { CONFIG } from '../../shared/config/config';
+import { DataServiceInstance } from '../../commons/services/data.service';
+import { CONFIG } from '../../commons/config/config';
 
 export class PaginationController implements IController {
 

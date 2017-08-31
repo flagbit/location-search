@@ -1,5 +1,5 @@
-import { AbstractObservable } from '../../shared/observables/abstract.observable';
-import { DataServiceInstance } from '../data/data.service';
+import { AbstractObservable } from './abstract.observable';
+import { DataServiceInstance } from '../services/data.service';
 import { CONFIG } from '../config/config';
 import { MARKER_2 } from '../themes/marker/marker.2';
 

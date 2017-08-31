@@ -1,8 +1,6 @@
 .vscode
 dist
 node_modules
-app/**/*.js
-app/**/*.js.map
-lib/**/*.js
-lib/**/*.js.map
+src/**/*.js
+src/**/*.js.map
 

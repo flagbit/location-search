@@ -1,5 +1,5 @@
 import { IController, INgModelOptions } from 'angular';
-import { QueryObservableInstance } from '../../shared/observables/query.observable';
+import { QueryObservableInstance } from '../../commons/observables/query.observable';
 
 export class SearchController implements IController {
 
