@@ -1,5 +1,6 @@
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { AbstractObservable } from './abstract.observable';
+import { MAPS_API_ENDPOINT, MAPS_API_KEY } from '../config/maps';
 
 class UserLocation extends AbstractObservable {
 
@@ -10,10 +11,11 @@ class UserLocation extends AbstractObservable {
     return super.get();
   }
 
-  private saveAndSendPosition(lat, lng) {
+  private saveAndSendPosition(lat, lng, country) {
     let currentPosition = {
       latitude: lat,
-      longitude: lng
+      longitude: lng,
+      country: country
     }
     sessionStorage.setItem('position', JSON.stringify(currentPosition));
     this.subject.next(currentPosition);
@@ -23,13 +25,23 @@ class UserLocation extends AbstractObservable {
     navigator.geolocation.getCurrentPosition(
       // User gave permission to catch his position
       (position) => {
-        this.saveAndSendPosition(position.coords.latitude, position.coords.longitude);
+        const latLng = `${position.coords.latitude},${position.coords.longitude}`;
+        fetch(`${MAPS_API_ENDPOINT}?latlng=${latLng}&key=${MAPS_API_KEY}`).then((response: any) => {
+          response.json().then((reverseResult: any) => {
+            const topMatch = reverseResult.results.pop();
+            const countryComponent = topMatch.address_components.find((item) => {
+              return item.types.indexOf('country') !== -1;
+            });
+            const countryCode = countryComponent.short_name;
+            this.saveAndSendPosition(position.coords.latitude, position.coords.longitude, countryCode);
+          });
+        });
       },
       // User denied permission to his geolocation -> get by IP
       () => {
         fetch(`https://geoip.mralexandernickel.com`).then((res) => {
           res.json().then((position) => {
-            this.saveAndSendPosition(position.latitude, position.longitude);
+            this.saveAndSendPosition(position.latitude, position.longitude, position.country);
           });
         })
       }

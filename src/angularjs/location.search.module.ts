@@ -15,7 +15,6 @@ import { LocationSearchSearchModule } from './search/search.module';
 import { MapModule } from './map/map.module';
 import { ListModule } from './list/list.module';
 import { LocationSearchPaginationModule } from './pagination/pagination.module';
-import { LocationSearchTemplate } from './location.search.template';
 
 //
 // DEFINE ANGULAR MODULE
@@ -29,7 +28,7 @@ export const LocationSearchModule = angular
     LocationSearchPaginationModule.name
   ])
   .component('locationSearch', LocationSearchComponent)
-  .value('locationSearchTemplate', LocationSearchTemplate)
+  .value('locationSearchTemplate', require('./location.search.template.html'))
   /*
   .config(($compileProvider) => {
     if (window['APPLICATION_ENV'] !== 'development') {

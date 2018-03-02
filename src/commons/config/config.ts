@@ -23,5 +23,6 @@ export const CONFIG = {
   mapZoomInitial: 14,
   mapZoomMax: 16
 }
-
-export const WORKER_PATH = (window['APPLICATION_ENV'] === 'search.development') ? '/dist' : '/node_modules/@flagbit/location-search/dist';
+export const WORKER_PATH = (window && window['APPLICATION_ENV'] === 'search.development')
+  ? '/dist'
+  : '/node_modules/@flagbit/location-search/dist';

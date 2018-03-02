@@ -1,5 +1,4 @@
-export const PaginationTemplate =
-`<div ng-if="ctrl.currentPage.constructor.name === 'Number'">
+<div ng-if="ctrl.currentPage.constructor.name === 'Number'">
   <strong>{{ ctrl.currentPage * ctrl.itemsPerPage + 1 }}</strong>
   to
   <strong>{{ ctrl.currentPage * ctrl.itemsPerPage + ctrl.itemsPerPage }}</strong>
@@ -12,4 +11,4 @@ export const PaginationTemplate =
     ng-class="{active: ctrl.currentPage === $index}">
     <a href="" ng-click="ctrl.gotoPage($index)">{{$index + 1}}</a>
   </li>
-</ul>`;
+</ul>

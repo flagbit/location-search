@@ -8,14 +8,7 @@
     "experimentalDecorators": true,
     "lib": [ "es2015", "dom" ],
     "removeComments": false,
-    "noImplicitAny": false,
-    "types": [
-      "angular",
-      "angular-mocks",
-      "jasmine",
-      "selenium-webdriver",
-      "googlemaps"
-    ]
+    "noImplicitAny": false
   },
   "exclude": [
     "node_modules",
