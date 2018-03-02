@@ -1,11 +1,11 @@
 {
   "name": "@flagbit/location-search",
-  "version": "0.3.0",
+  "version": "0.4.1",
   "main": "index.html",
   "license": "MIT",
   "scripts": {
-    "lint": "tslint -c tslint.json --type-check --project tsconfig.json '**/*.ts' --exclude '**/node_modules/**' --exclude '**/worker/**'",
-    "build": "yarn lint && tsc && cd src/commons/worker && tsc && cd ../../../",
+    "lint": "tslint -c tslint.json --project tsconfig.json '**/*.ts' --exclude '**/node_modules/**' --exclude '**/worker/**'",
+    "build": "yarn lint && yarn webpack",
     "test:bs": "karma start karma.conf.js",
     "test": "karma start karma.local.conf.js",
     "test-single-run": "karma start karma.conf.js --single-run",
@@ -13,16 +13,15 @@
     "update-webdriver": "webdriver-manager update",
     "preprotractor": "npm run update-webdriver",
     "protractor": "protractor e2e/protractor.conf.js",
-    "webpack": "webpack",
-    "compress": "yarn uglify:module && yarn uglify:worker",
-    "uglify:module": "./node_modules/uglify-js/bin/uglifyjs dist/location-search.js --compress > dist/location-search.min.js",
-    "uglify:worker": "./node_modules/uglify-js/bin/uglifyjs dist/data.worker.js --compress > dist/data.worker.min.js",
-    "dist": "yarn lint && yarn webpack && cd src/commons/worker && tsc && cd ../../../ && cp src/commons/worker/data.worker.js dist/ && yarn compress",
-    "prepublish": "yarn dist"
+    "webpack": "node_modules/.bin/webpack",
+    "prepublish": "yarn build"
   },
   "dependencies": {
+    "@types/node": "^9.4.6",
     "angular": "1.6.4",
     "angular-utils-pagination": "^0.11.1",
+    "babel-loader": "^7.1.3",
+    "html-loader": "^0.5.5",
     "rxjs": "^5.4.3",
     "systemjs": "0.19.39",
     "whatwg-fetch": "^2.0.3"
